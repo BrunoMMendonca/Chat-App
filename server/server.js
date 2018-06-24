@@ -15,19 +15,19 @@ var io = socketIO(server);
 app.use(express.static(publicPath));
 
 io.on('connection',(socket)=>{
-    console.log('new user connected')
+    console.log('New user connected')
 
-    //socket.on('newUser',() => {
         var welcomeMsg = "Welcome to our chat"
         var joinedMsg = "New user joined the chat"
         socket.emit('newMessage', generateMessage('Admin', welcomeMsg));
         socket.broadcast.emit('newMessage',generateMessage('Admin',joinedMsg));
-    //});
 
-    socket.on('createMessage',(message) =>{
+    socket.on('createMessage', (message, callback) => {
+        console.log('createMessage:', message);
         io.emit('newMessage',generateMessage(message.from, message.text));
+        //callback('This is from the server.');
     });
-    
+
     socket.on('disconnect', ()=>{
         console.log('Disconnected from server');
     });
