@@ -98,7 +98,7 @@
   .chat__sidebar h3 {
     color: #e6eaee;
     margin: 10px 20px;
-    text-align: left;
+    text-align: center;
   }
   
   .chat__sidebar ul {
@@ -106,9 +106,9 @@
   }
   
   .chat__sidebar li {
-    background: #e6eaee;
-    border: 1px solid #e1e1e1;
-    border-radius: 5px;
+    background: #cfdce9;
+    border: 1px solid #9cbee0;
+    border-radius: 10px;
     padding: 10px;
     margin: 10px;
   }
